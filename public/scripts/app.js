@@ -1,8 +1,6 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-require('./style.css');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -11,7 +9,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 console.log('running');
-
+//import './style.css'
 var DUMMY_DATA = [{
     senderId: "uchiha",
     text: "sasuke"
@@ -41,7 +39,7 @@ var App = function (_React$Component) {
     }
 
     _createClass(App, [{
-        key: 'sendMessage',
+        key: "sendMessage",
         value: function sendMessage(text) {
             this.currentUser.sendMessage({
                 text: text,
@@ -49,7 +47,7 @@ var App = function (_React$Component) {
             });
         }
     }, {
-        key: 'componentDidMount',
+        key: "componentDidMount",
         value: function componentDidMount() {
             var _this2 = this;
 
@@ -81,11 +79,11 @@ var App = function (_React$Component) {
             });
         }
     }, {
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
-                { className: 'app' },
+                "div",
+                { className: "app" },
                 React.createElement(Title, null),
                 React.createElement(Messages, { messages: this.state.messages, roomId: this.state.roomId }),
                 React.createElement(MessageForm, { sendMessage: this.sendMessage })
@@ -106,27 +104,27 @@ var Messages = function (_React$Component2) {
     }
 
     _createClass(Messages, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             console.log('entering');
             return React.createElement(
-                'div',
+                "div",
                 null,
                 React.createElement(
-                    'ul',
-                    { className: 'message-list' },
+                    "ul",
+                    { className: "message-list" },
                     this.props.messages.map(function (message) {
                         console.log(message.text);
                         return React.createElement(
-                            'li',
+                            "li",
                             { key: message.id },
                             React.createElement(
-                                'div',
+                                "div",
                                 null,
                                 message.senderId
                             ),
                             React.createElement(
-                                'div',
+                                "div",
                                 null,
                                 message.text
                             )
@@ -157,7 +155,7 @@ var MessageForm = function (_React$Component3) {
     }
 
     _createClass(MessageForm, [{
-        key: 'handleSubmit',
+        key: "handleSubmit",
         value: function handleSubmit(e) {
             e.preventDefault();
             this.props.sendMessage(this.state.message);
@@ -166,7 +164,7 @@ var MessageForm = function (_React$Component3) {
             });
         }
     }, {
-        key: 'handleChange',
+        key: "handleChange",
         value: function handleChange(e) {
             console.log(e.target.value);
             var message = e.target.value;
@@ -177,15 +175,15 @@ var MessageForm = function (_React$Component3) {
             });
         }
     }, {
-        key: 'render',
+        key: "render",
         value: function render() {
             return React.createElement(
-                'div',
+                "div",
                 null,
                 React.createElement(
-                    'form',
-                    { className: 'form', onSubmit: this.handleSubmit },
-                    React.createElement('input', { onChange: this.handleChange, value: this.state.message, type: 'text', name: 'user' })
+                    "form",
+                    { className: "form", onSubmit: this.handleSubmit },
+                    React.createElement("input", { onChange: this.handleChange, value: this.state.message, type: "text", name: "user" })
                 )
             );
         }
@@ -196,9 +194,9 @@ var MessageForm = function (_React$Component3) {
 
 function Title() {
     return React.createElement(
-        'p',
-        { className: 'title' },
-        'Chat App'
+        "p",
+        { className: "title" },
+        "Chat App"
     );
 }
 ReactDOM.render(React.createElement(App, null), document.getElementById('root'));

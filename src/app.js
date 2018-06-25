@@ -1,5 +1,5 @@
 console.log('running');
-import './style.css'
+//import './style.css'
 const DUMMY_DATA = [
     {
         senderId : "uchiha",
@@ -60,9 +60,9 @@ class App extends React.Component{
     render(){
         return(
             <div className ="app">
-           <Title/>
-            <Messages messages={this.state.messages} roomId={this.state.roomId}/>
-            <MessageForm sendMessage={this.sendMessage}/>
+            <Title />
+            <Messages messages={this.state.messages} roomId={this.state.roomId} />
+            <MessageForm sendMessage={this.sendMessage} />
             </div>
         )
     }
