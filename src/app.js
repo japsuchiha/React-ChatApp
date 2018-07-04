@@ -1,4 +1,7 @@
-console.log('running');
+
+import Message from './components/Message';
+import MessageForm from './components/MessageForm';
+import Title from './components/Title';
 //import './style.css'
 const DUMMY_DATA = [
     {
@@ -27,7 +30,7 @@ class App extends React.Component{
     sendMessage(text){
         this.currentUser.sendMessage({
             text,
-            roomId: roomId
+            roomId
         })
     }
     componentDidMount(){
@@ -68,67 +71,4 @@ class App extends React.Component{
     }
 }
 
-class Messages extends React.Component{
-    render(){
-        console.log('entering')
-        return(
-            <div>
-            <ul className = "message-list">
-            {this.props.messages.map(message =>{
-                console.log(message.text)
-                return(
-                    <li key={message.id}>
-                    <div>
-                    {message.senderId}
-                    </div>
-                    <div>
-                    {message.text}
-                    </div>
-                    </li>
-                )
-            })}
-            </ul>
-            </div>
-        )
-    }
-}
-
-class MessageForm extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            message:""
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-    }
-    handleSubmit(e){
-        e.preventDefault();
-        this.props.sendMessage(this.state.message)
-        this.setState(()=>{
-            message:""
-        })
-    }
-     handleChange(e){
-         console.log(e.target.value)
-         const message = e.target.value;
-          this.setState(()=>({
-              message: message
-          }))
-    }
-    render(){
-        return(
-            <div>
-            <form className="form" onSubmit={this.handleSubmit}>
-            <input onChange={this.handleChange} value={this.state.message}type="text" name="user"/>
-            </form>
-            </div>
-        )
-    }
-}
-function Title(){
-    return(
-        <p className="title">Chat App</p>
-    )
-}
 ReactDOM.render(<App/>, document.getElementById('root'))
