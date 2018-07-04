@@ -2,7 +2,8 @@
 import Message from './components/Message';
 import MessageForm from './components/MessageForm';
 import Title from './components/Title';
-//import './style.css'
+import RoomList from './components/RoomList';
+import './styles/style.scss'
 const DUMMY_DATA = [
     {
         senderId : "uchiha",
@@ -66,6 +67,7 @@ class App extends React.Component{
             <Title />
             <Messages messages={this.state.messages} roomId={this.state.roomId} />
             <MessageForm sendMessage={this.sendMessage} />
+            <RoomList/>
             </div>
         )
     }
